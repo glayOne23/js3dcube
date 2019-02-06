@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hai</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="particlesjs_master/particles.min.js"></script>
+  </head>
+  <body>
+      <div id="tulisan">
+        Hello Me
+        <ul></ul>
+        <h2></h2>
+      </div>
+      <div id="particles"></div>
+  </body>
+  <script src="configparticlejs.js"></script>
+  <script type="text/javascript">
+
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+
+    const ul = document.querySelector('ul');
+    //ambil data item:add dari index.js yang dikirim dari halaman1.html
+    ipcRenderer.on('item:add',(e, item) => {
+       const li = document.createElement('li');
+       const isiItem = document.createTextNode(item);
+       li.appendChild(isiItem);
+       ul.appendChild(li);
+    });
+
+    //clear semua yang ada di ul
+    ipcRenderer.on('item:clear',() => {
+       ul.innerHTML = '';
+    });
+
+    //hapus item jika di double click
+    ul.addEventListener('dblclick',hapusItem);
+    function hapusItem(e){
+      e.target.remove();
+    }
+
+  </script>
+</html>

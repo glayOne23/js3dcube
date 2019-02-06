@@ -1,0 +1,29 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#tulisan{
+  color: white;
+  font-size: 3rem;
+  font-family: sans-serif;
+  /* membuat diatas particleJS */
+  position:absolute;
+  /* membuat posisi pas di tengah page */
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+body{
+  background-color: black;
+}
+
+ul{
+  color: white;
+  font-size: 15px;
+}
+
+li{
+  color: white;
+}
